@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BureautiqueenPoc · Formation bureautique à Dakar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ─── Reset & Base ─── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #0b1120;
+      background: #f6f9fc;
+      cursor: default;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+      scroll-behavior: smooth;
+    }
+    html[data-theme="dark"] body {
+      background: #0b1120;
+      color: #e8edf5;
+    }
+
+    /* ─── Dark Mode ─── */
+    html[data-theme="dark"] .bg-white {
+      background: #141c2f !important;
+    }
+    html[data-theme="dark"] .bg-gray-50 {
+      background: #101827 !important;
+    }
+    html[data-theme="dark"] .bg-gray-100 {
+      background: #1a253b !important;
+    }
+    html[data-theme="dark"] .bg-gray-900 {
+      background: #060b16 !important;
+    }
+    html[data-theme="dark"] .text-gray-800 {
+      color: #e8edf5 !important;
+    }
+    html[data-theme="dark"] .text-gray-700 {
+      color: #d1d9e8 !important;
+    }
+    html[data-theme="dark"] .text-gray-600 {
+      color: #a8b5cc !important;
+    }
+    html[data-theme="dark"] .text-gray-500 {
+      color: #7a8aa8 !important;
+    }
+    html[data-theme="dark"] .border-gray-200 {
+      border-color: #1f2b42 !important;
+    }
+    html[data-theme="dark"] .border-gray-100 {
+      border-color: #1a253b !important;
+    }
+    html[data-theme="dark"] .shadow-sm {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    }
+    html[data-theme="dark"] .shadow-md {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6) !important;
+    }
+    html[data-theme="dark"] .shadow-xl {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7) !important;
+    }
+    html[data-theme="dark"] .shadow-2xl {
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8) !important;
+    }
+    html[data-theme="dark"] .bg-white\/80 {
+      background: rgba(20, 28, 47, 0.85) !important;
+    }
+    html[data-theme="dark"] .bg-white\/90 {
+      background: rgba(20, 28, 47, 0.95) !important;
+    }
+    html[data-theme="dark"] .bg-white\/20 {
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+    html[data-theme="dark"] .bg-blue-50 {
+      background: #101827 !important;
+    }
+    html[data-theme="dark"] .bg-indigo-50 {
+      background: #101827 !important;
+    }
+    html[data-theme="dark"] .bg-gradient-to-br {
+      background-image: linear-gradient(135deg, #101827, #0b1120) !important;
+    }
+    html[data-theme="dark"] .bg-gradient-to-br.from-blue-50 {
+      --tw-gradient-from: #101827 !important;
+      --tw-gradient-to: #0b1120 !important;
+    }
+    html[data-theme="dark"] .bg-gradient-to-br.to-indigo-50 {
+      --tw-gradient-to: #101827 !important;
+    }
+    html[data-theme="dark"] .bg-blue-600 {
+      background: #2563eb !important;
+    }
+    html[data-theme="dark"] .bg-blue-700 {
+      background: #1d4ed8 !important;
+    }
+    html[data-theme="dark"] .text-blue-600 {
+      color: #60a5fa !important;
+    }
+    html[data-theme="dark"] .text-blue-700 {
+      color: #93c5fd !important;
+    }
+    html[data-theme="dark"] .text-blue-400 {
+      color: #60a5fa !important;
+    }
+    html[data-theme="dark"] .text-blue-500 {
+      color: #3b82f6 !important;
+    }
+    html[data-theme="dark"] .text-yellow-400 {
+      color: #fbbf24 !important;
+    }
+    html[data-theme="dark"] .text-green-400 {
+      color: #4ade80 !important;
+    }
+    html[data-theme="dark"] .border-blue-500 {
+      border-color: #3b82f6 !important;
+    }
+    html[data-theme="dark"] .input-interactive {
+      background: #141c2f !important;
+      color: #e8edf5 !important;
+      border-color: #1f2b42 !important;
+    }
+    html[data-theme="dark"] .input-interactive:focus {
+      border-color: #60a5fa !important;
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15) !important;
+    }
+    html[data-theme="dark"] .faq-item {
+      background: #141c2f !important;
+      border-color: #1f2b42 !important;
+    }
+    html[data-theme="dark"] .faq-item:hover {
+      border-color: #60a5fa !important;
+    }
+    html[data-theme="dark"] .carousel-btn {
+      background: rgba(20, 28, 47, 0.8) !important;
+      color: #e8edf5 !important;
+    }
+    html[data-theme="dark"] .carousel-btn:hover {
+      background: #141c2f !important;
+    }
+    html[data-theme="dark"] .carousel-dot {
+      background: #1f2b42 !important;
+    }
+    html[data-theme="dark"] .carousel-dot.active {
+      background: #60a5fa !important;
+    }
+    html[data-theme="dark"] .video-card {
+      background: #141c2f !important;
+      border-color: #1f2b42 !important;
+    }
+    html[data-theme="dark"] .gallery-item {
+      background: #141c2f !important;
+    }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    @keyframes pulse-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3);
+      }
+      70% {
+        box-shadow: 0 0 0 20px rgba(37, 99, 235, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #fbbf24, #f97316, #fbbf24);
+      background-size: 300% 300%;
+      animation: gradientFlow 4s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    html[data-theme="dark"] .card-glass {
+      background: rgba(20, 28, 47, 0.6);
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+    }
+    .btn-ripple:hover {
+      transform: scale(1.02);
+    }
+    .btn-ripple:active {
+      transform: scale(0.96);
+    }
+    .btn-ripple .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(0);
+      animation: rippleAnim 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    .link-underline {
+      position: relative;
+      cursor: pointer;
+    }
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      transition: width 0.3s ease;
+    }
+    .link-underline:hover::after {
+      width: 100%;
+    }
+
+    .wa-pulse {
+      animation: pulse-ring 2.5s infinite;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2e8f0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2563eb;
+      border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1d4ed8;
+    }
+    html[data-theme="dark"] ::-webkit-scrollbar-track {
+      background: #1a253b;
+    }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+    }
+
+    /* ─── Hero ─── */
+    .hero-slider {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .hero-slides {
+      display: flex;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      height: 100vh;
+    }
+    .hero-slide {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+    }
+    .hero-slide .content {
+      max-width: 820px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.9s ease forwards;
+    }
+    .hero-slide-first {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(30, 64, 175, 0.7)), url('images/logo_du_site.jpeg') no-repeat center center / cover;
+    }
+    .hero-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 20;
+      color: white;
+      font-size: 1.2rem;
+    }
+    .hero-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .hero-btn.prev {
+      left: 1.5rem;
+    }
+    .hero-btn.next {
+      right: 1.5rem;
+    }
+    .hero-dots {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.7rem;
+      z-index: 20;
+    }
+    .hero-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .hero-dot:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(1.2);
+    }
+    .hero-dot.active {
+      background: #ffffff;
+      transform: scale(1.3);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    @media (max-width: 640px) {
+      .hero-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+      .hero-btn.prev {
+        left: 0.5rem;
+      }
+      .hero-btn.next {
+        right: 0.5rem;
+      }
+      .hero-dot {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    /* ─── Carousel formateur ─── */
+    .carousel-container {
+      overflow: hidden;
+      border-radius: 1.5rem;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1rem;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      z-index: 10;
+      color: #1e293b;
+    }
+    .carousel-btn:hover {
+      background: white;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .carousel-btn.prev {
+      left: 0.5rem;
+    }
+    .carousel-btn.next {
+      right: 0.5rem;
+    }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .carousel-dot:hover {
+      background: #94a3b8;
+      transform: scale(1.2);
+    }
+    .carousel-dot.active {
+      background: #2563eb;
+      transform: scale(1.3);
+    }
+
+    /* ─── Vidéos ─── */
+    .video-card {
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    .video-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #e2e8f0;
+      cursor: pointer;
+    }
+    html[data-theme="dark"] .video-card video {
+      background: #1a253b;
+    }
+
+    /* ─── Logo navbar ─── */
+    .logo-container {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      background: white;
+      flex-shrink: 0;
+    }
+    .logo-container:hover {
+      transform: scale(1.06) rotate(-2deg);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.25);
+    }
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── Inputs ─── */
+    .input-interactive {
+      transition: all 0.3s ease;
+      cursor: text;
+    }
+    .input-interactive:focus {
+      transform: scale(1.01);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+      border-color: #2563eb;
+    }
+    .input-interactive:hover {
+      border-color: #94a3b8;
+    }
+    select.input-interactive {
+      cursor: pointer;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-item {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-radius: 1rem;
+    }
+    .faq-item:hover {
+      border-color: #93c5fd;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.05);
+    }
+    .faq-item summary {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item:hover summary {
+      color: #2563eb;
+    }
+    .faq-item .fa-chevron-down {
+      transition: transform 0.3s ease;
+    }
+    .faq-item[open] .fa-chevron-down {
+      transform: rotate(180deg);
+    }
+
+    /* ─── Galerie ─── */
+    .gallery-item {
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+      background: #f1f5f9;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+    .gallery-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.2rem 1.2rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── Module logos ─── */
+    .module-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      min-height: 56px;
+    }
+    .module-logo img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .module-logo img:hover {
+      transform: scale(1.08);
+    }
+
+    /* ─── Theme toggle ─── */
+    .theme-toggle {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .theme-toggle:hover {
+      transform: rotate(20deg) scale(1.1);
+    }
+
+    /* ─── Badge ─── */
+    .badge-pulse {
+      animation: pulse-ring 2s infinite;
+    }
+
+    /* ─── Nav ─── */
+    .nav-link {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #2563eb;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .nav-link:hover {
+      color: #2563eb;
+    }
+    .mobile-link {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .mobile-link:hover {
+      color: #2563eb;
+      padding-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav class="fixed top-0 left-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl shadow-sm z-50 border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+      <div class="flex items-center gap-3">
+        <div class="logo-container">
+          <img src="images/logo_du_site.jpeg" alt="Logo BureautiqueenPoc" />
+        </div>
+        <span class="font-extrabold text-2xl tracking-tight text-gray-800 dark:text-white">Bureautique<span class="text-blue-600 dark:text-blue-400">enPoc</span></span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+        <a href="#formation" class="nav-link">Formation</a>
+        <a href="#tarifs" class="nav-link">Modules</a>
+        <a href="#temoignages" class="nav-link">Avis</a>
+        <a href="#formateur" class="nav-link">Formateur</a>
+        <a href="#videos" class="nav-link">Vidéos</a>
+        <a href="#galerie" class="nav-link">Galerie</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button id="theme-toggle" class="theme-toggle text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-xl">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="#inscription" class="btn-ripple bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all">Inscription</a>
+      </div>
+      <div class="md:hidden flex items-center gap-3">
+        <button id="theme-toggle-mobile" class="theme-toggle text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-xl">
+          <i class="fas fa-moon" id="theme-icon-mobile"></i>
+        </button>
+        <button id="menu-btn" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none transition-all duration-300 hover:scale-110">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-gray-200/50 dark:border-gray-800/50 px-4 py-4 space-y-3 text-sm font-medium text-gray-600 dark:text-gray-300">
+      <a href="#formation" class="mobile-link block">Formation</a>
+      <a href="#tarifs" class="mobile-link block">Modules</a>
+      <a href="#temoignages" class="mobile-link block">Avis</a>
+      <a href="#formateur" class="mobile-link block">Formateur</a>
+      <a href="#videos" class="mobile-link block">Vidéos</a>
+      <a href="#galerie" class="mobile-link block">Galerie</a>
+      <a href="#faq" class="mobile-link block">FAQ</a>
+      <a href="#contact" class="mobile-link block">Contact</a>
+      <a href="#inscription" class="btn-ripple block bg-blue-600 text-white text-center px-4 py-2.5 rounded-full hover:bg-blue-700">Inscription</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO SLIDER ═══════════════════ -->
+  <section class="hero-slider relative min-h-screen flex items-center overflow-hidden text-white">
+    <div class="hero-slides" id="hero-slides">
+      <!-- Slide 1 -->
+      <div class="hero-slide hero-slide-first">
+        <div class="content">
+          <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide">
+            <i class="fas fa-certificate"></i> Centre agréé · Dakar Sacré-Cœur
+          </span>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+            Maîtrise la bureautique, <br />
+            <span class="gradient-text">booste ta carrière</span>
+          </h1>
+          <p class="mt-6 text-lg md:text-xl text-blue-50/90 max-w-2xl mx-auto leading-relaxed font-light">
+            Formation pratique en <strong class="text-white font-semibold">Windows, Word, Excel, PowerPoint, Access &amp; IA</strong>.<br />
+            4 modules spécialisés, certificat reconnu, petits groupes.
+          </p>
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#tarifs" class="btn-ripple bg-white text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-full font-semibold shadow-xl hover:shadow-2xl inline-flex items-center justify-center gap-2 transition-all">
+              <i class="fas fa-calendar-check"></i> Voir les modules
+            </a>
+            <a href="#inscription" class="btn-ripple bg-transparent border-2 border-white hover:bg-white hover:text-blue-700 px-8 py-3.5 rounded-full font-semibold inline-flex items-center justify-center gap-2 transition-all">
+              <i class="fas fa-user-plus"></i> Réserver ma place
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide" style="background: linear-gradient(135deg, #0b1120, #1a253b, #0b1120);">
+        <div class="content">
+          <span class="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide">
+            <i class="fas fa-rocket"></i> 4 modules sur mesure
+          </span>
+          <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+            De <span class="text-yellow-400">Windows</span> à l'<span class="text-yellow-400">IA</span>,<br />tout en un
+          </h2>
+          <p class="mt-6 text-lg md:text-xl text-blue-50/80 max-w-2xl mx-auto leading-relaxed font-light">
+            Choisis parmi 4 spécialités : Windows+Word+IA, Excel+PowerPoint, Excel Avancé Pro, ou Access.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3 justify-center">
+            <span class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm flex items-center gap-2"><img src="https://img.icons8.com/color/24/000000/windows-10.png" alt="Windows" /> Windows</span>
+            <span class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm flex items-center gap-2"><img src="https://img.icons8.com/color/24/000000/word.png" alt="Word" /> Word</span>
+            <span class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm flex items-center gap-2"><img src="https://img.icons8.com/color/24/000000/excel.png" alt="Excel" /> Excel</span>
+            <span class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm flex items-center gap-2"><img src="https://img.icons8.com/color/24/000000/powerpoint.png" alt="PowerPoint" /> PowerPoint</span>
+            <span class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm flex items-center gap-2"><img src="https://img.icons8.com/color/24/000000/microsoft-access.png" alt="Access" /> Access</span>
+            <span class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm flex items-center gap-2"><img src="https://img.icons8.com/color/24/000000/artificial-intelligence.png" alt="IA" /> IA</span>
+          </div>
+          <div class="mt-10">
+            <a href="#tarifs" class="btn-ripple bg-yellow-400 text-gray-900 hover:bg-yellow-300 px-8 py-3.5 rounded-full font-semibold shadow-xl hover:shadow-2xl inline-flex items-center gap-2 transition-all">
+              <i class="fas fa-arrow-right"></i> Explorer les modules
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide" style="background: linear-gradient(135deg, #1a2a5f, #1e3a8a, #1a2a5f);">
+        <div class="content">
+          <span class="inline-flex items-center gap-2 bg-yellow-400/20 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide">
+            <i class="fas fa-star text-yellow-400"></i> 4,9/5 de satisfaction
+          </span>
+          <blockquote class="text-2xl md:text-3xl lg:text-4xl font-light italic max-w-2xl mx-auto leading-relaxed">
+            "Grâce à BureautiqueenPoc, j'ai décroché un poste en tant qu'analyste. La formation Excel Avancé m'a tout appris !"
+          </blockquote>
+          <div class="mt-8 flex items-center justify-center gap-3">
+            <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold">AS</div>
+            <div class="text-left">
+              <span class="font-semibold text-white">Aïcha S.</span>
+              <span class="block text-sm text-blue-200">Analyste · Ancienne apprenante</span>
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="#temoignages" class="btn-ripple bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 px-8 py-3.5 rounded-full font-semibold inline-flex items-center gap-2 transition-all">
+              <i class="fas fa-comment"></i> Lire plus d'avis
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="hero-slide" style="background: linear-gradient(135deg, #0b1120, #1a1b4b, #0b1120);">
+        <div class="content">
+          <span class="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide">
+            <i class="fas fa-graduation-cap"></i> Prêt à commencer ?
+          </span>
+          <h2 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+            Inscris-toi dès <span class="text-green-400">maintenant</span>
+          </h2>
+          <p class="mt-6 text-lg md:text-xl text-blue-50/80 max-w-2xl mx-auto leading-relaxed font-light">
+            Remplis le formulaire et nous te recontacterons sous 24h.
+          </p>
+          <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#inscription" class="btn-ripple bg-green-500 hover:bg-green-600 text-white px-8 py-3.5 rounded-full font-semibold shadow-xl hover:shadow-2xl inline-flex items-center gap-2 transition-all">
+              <i class="fas fa-pencil-alt"></i> Je m'inscris
+            </a>
+            <a href="#faq" class="btn-ripple bg-transparent border-2 border-white/40 hover:bg-white/10 px-8 py-3.5 rounded-full font-semibold inline-flex items-center gap-2 transition-all">
+              <i class="fas fa-question-circle"></i> FAQ
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="hero-btn prev" id="hero-prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-btn next" id="hero-next"><i class="fas fa-chevron-right"></i></button>
+    <div class="hero-dots" id="hero-dots"></div>
+  </section>
+
+  <!-- ═══════════════════ ÉTAPES ═══════════════════ -->
+  <section id="formation" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Processus</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Comment ça marche</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">3 étapes simples vers la compétence</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-10 shadow-sm card-hover border border-gray-100 dark:border-gray-700 text-center fade-up" style="transition-delay: 0.1s;">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl flex items-center justify-center text-3xl font-extrabold mx-auto shadow-lg transition-transform duration-300 hover:scale-110">1</div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mt-6">Choisis ton module</h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-3">Débutant ou expert, sélectionne le module qui correspond à tes objectifs.</p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-10 shadow-sm card-hover border border-gray-100 dark:border-gray-700 text-center fade-up" style="transition-delay: 0.2s;">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl flex items-center justify-center text-3xl font-extrabold mx-auto shadow-lg transition-transform duration-300 hover:scale-110">2</div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mt-6">Suis les cours pratiques</h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-3">80 % de pratique en salle équipée. Horaires flexibles : matin, soir ou week-end.</p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-10 shadow-sm card-hover border border-gray-100 dark:border-gray-700 text-center fade-up" style="transition-delay: 0.3s;">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl flex items-center justify-center text-3xl font-extrabold mx-auto shadow-lg transition-transform duration-300 hover:scale-110">3</div>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-white mt-6">Certificat &amp; emploi</h3>
+          <p class="text-gray-500 dark:text-gray-400 mt-3">Validation par un test, certificat en poche et accompagnement vers le stage ou l'emploi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TARIFS ═══════════════════ -->
+  <section id="tarifs" class="py-24 md:py-32 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Nos modules</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Choisis ta spécialité</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">Des formations ciblées avec les outils du quotidien</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+        <!-- Module 1 -->
+        <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 flex flex-col fade-up" style="transition-delay: 0.1s;">
+          <div class="module-logo">
+            <img src="https://img.icons8.com/color/48/000000/windows-10.png" alt="Windows" />
+            <img src="https://img.icons8.com/color/48/000000/word.png" alt="Word" />
+            <img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" alt="IA" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 dark:text-white text-center">Windows + Word + IA</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Les fondamentaux + IA</p>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-extrabold text-blue-600 dark:text-blue-400">30 000</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm"> FCFA</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-300 flex-1">
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Windows (gestion fichiers, paramètres)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Word (mise en page, publipostage)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Introduction à l'IA (ChatGPT, Copilot)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>4 semaines · 24 h</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Certificat de compétence</li>
+          </ul>
+          <a href="#inscription" class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all">Je m'inscris</a>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 flex flex-col fade-up" style="transition-delay: 0.2s;">
+          <div class="module-logo">
+            <img src="https://img.icons8.com/color/48/000000/excel.png" alt="Excel" />
+            <img src="https://img.icons8.com/color/48/000000/powerpoint.png" alt="PowerPoint" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 dark:text-white text-center">Excel + PowerPoint</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Analyse de données et présentations</p>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-extrabold text-blue-600 dark:text-blue-400">35 000</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm"> FCFA</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-300 flex-1">
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Excel (formules, tableaux croisés)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>PowerPoint (animations, design)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Projets concrets (budgets, rapports)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>5 semaines · 30 h</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Certificat officiel</li>
+          </ul>
+          <a href="#inscription" class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all">Je m'inscris</a>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-xl card-hover border-2 border-blue-500 dark:border-blue-400 relative flex flex-col fade-up" style="transition-delay: 0.3s;">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg badge-pulse">⭐ Expert</span>
+          <div class="module-logo">
+            <img src="https://img.icons8.com/color/48/000000/excel.png" alt="Excel" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 dark:text-white text-center">Excel Avancé Pro</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Maîtrise totale de l'analyse</p>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-extrabold text-blue-600 dark:text-blue-400">40 000</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm"> FCFA</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-300 flex-1">
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Fonctions avancées (SI, RECHERCHEV)</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Tableaux croisés dynamiques, Power Query</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Macros VBA, automatisation</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>6 semaines · 36 h</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Certificat de niveau expert</li>
+          </ul>
+          <a href="#inscription" class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all">Je m'inscris</a>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 flex flex-col fade-up" style="transition-delay: 0.4s;">
+          <div class="module-logo">
+            <img src="https://img.icons8.com/color/48/000000/microsoft-access.png" alt="Access" />
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 dark:text-white text-center">Access</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Bases de données relationnelles</p>
+          <div class="mt-4 text-center">
+            <span class="text-4xl font-extrabold text-blue-600 dark:text-blue-400">38 000</span>
+            <span class="text-gray-500 dark:text-gray-400 text-sm"> FCFA</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-300 flex-1">
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Conception de tables et relations</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Requêtes SQL, formulaires, états</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Gestion de données et reporting</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>5 semaines · 30 h</li>
+            <li><i class="fas fa-check-circle text-blue-500 mr-3"></i>Certificat de compétence</li>
+          </ul>
+          <a href="#inscription" class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all">Je m'inscris</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TÉMOIGNAGES ═══════════════════ -->
+  <section id="temoignages" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Avis</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Ils nous font confiance</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">Des retours authentiques d'étudiants et professionnels</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-3xl shadow-sm card-hover border border-gray-100 dark:border-gray-700 fade-up" style="transition-delay: 0.1s;">
+          <div class="text-yellow-400 text-lg mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-gray-700 dark:text-gray-300 italic leading-relaxed">"Le module Windows+Word+IA m'a permis de gagner un temps fou dans mon travail. L'IA, c'est le futur !"</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">FD</div>
+            <div><span class="font-semibold text-gray-800 dark:text-white">Fatou D.</span><span class="block text-sm text-gray-500 dark:text-gray-400">Secrétaire</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-3xl shadow-sm card-hover border border-gray-100 dark:border-gray-700 fade-up" style="transition-delay: 0.2s;">
+          <div class="text-yellow-400 text-lg mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-gray-700 dark:text-gray-300 italic leading-relaxed">"Excel+PowerPoint m'a rendu plus efficace dans mes présentations et mes analyses. Formateurs au top !"</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">MK</div>
+            <div><span class="font-semibold text-gray-800 dark:text-white">Moussa K.</span><span class="block text-sm text-gray-500 dark:text-gray-400">Étudiant</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-3xl shadow-sm card-hover border border-gray-100 dark:border-gray-700 fade-up" style="transition-delay: 0.3s;">
+          <div class="text-yellow-400 text-lg mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-gray-700 dark:text-gray-300 italic leading-relaxed">"Excel Avancé Pro m'a ouvert les yeux sur la puissance de VBA. Je gère aujourd'hui des bases de données complexes."</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">AS</div>
+            <div><span class="font-semibold text-gray-800 dark:text-white">Aïcha S.</span><span class="block text-sm text-gray-500 dark:text-gray-400">Analyste</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-3xl shadow-sm card-hover border border-gray-100 dark:border-gray-700 fade-up" style="transition-delay: 0.4s;">
+          <div class="text-yellow-400 text-lg mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-gray-700 dark:text-gray-300 italic leading-relaxed">"Access m'a permis de structurer mes données client. Je crée mes propres requêtes et rapports. Très pratique !"</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">IN</div>
+            <div><span class="font-semibold text-gray-800 dark:text-white">Ibrahima N.</span><span class="block text-sm text-gray-500 dark:text-gray-400">Comptable</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-3xl shadow-sm card-hover border border-gray-100 dark:border-gray-700 fade-up" style="transition-delay: 0.5s;">
+          <div class="text-yellow-400 text-lg mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-gray-700 dark:text-gray-300 italic leading-relaxed">"J'avais peur de l'ordinateur, aujourd'hui je gère tout seul. Avec M. Dramé, tout est possible."</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">MT</div>
+            <div><span class="font-semibold text-gray-800 dark:text-white">Mariama T.</span><span class="block text-sm text-gray-500 dark:text-gray-400">Commerçante</span></div>
+          </div>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-3xl shadow-sm card-hover border border-gray-100 dark:border-gray-700 fade-up" style="transition-delay: 0.6s;">
+          <div class="text-yellow-400 text-lg mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="text-gray-700 dark:text-gray-300 italic leading-relaxed">"Excellente formation, je suis passé de zéro à héros en bureautique. Je recommande vivement !"</p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold">OF</div>
+            <div><span class="font-semibold text-gray-800 dark:text-white">Oumar F.</span><span class="block text-sm text-gray-500 dark:text-gray-400">Agent administratif</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FORMATEUR CAROUSEL ═══════════════════ -->
+  <section id="formateur" class="py-24 md:py-32 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Expertise</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Rencontrez votre formateur</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">Un professionnel passionné, à votre écoute</p>
+      </div>
+      <div class="mt-14 relative">
+        <div class="carousel-container bg-white dark:bg-gray-900 shadow-xl border border-gray-200 dark:border-gray-700">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide">
+              <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+                <div class="w-48 h-48 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-blue-100 dark:border-blue-800 transition-transform duration-300 hover:scale-105">
+                  <img src="images/formateur-logo.jpeg" alt="Ousmane Dramé" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Ousmane Dramé</h3>
+                <p class="text-blue-600 dark:text-blue-400 font-semibold">Formateur en bureautique &amp; IA</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-4 leading-relaxed max-w-md">Plus de 10 ans d'expérience dans la formation professionnelle. Expert certifié Microsoft, il a formé plus de 10 000 apprenants à Dakar.</p>
+                <div class="flex gap-4 mt-4 text-blue-500 dark:text-blue-400 text-xl">
+                  <i class="fab fa-linkedin-in hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                  <i class="fab fa-twitter hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                  <i class="fab fa-youtube hover:text-red-600 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+                <div class="w-48 h-48 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-blue-100 dark:border-blue-800 transition-transform duration-300 hover:scale-105">
+                  <img src="images/logo2.jpeg" alt="Aïssatou Diallo" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Aïssatou Diallo</h3>
+                <p class="text-blue-600 dark:text-blue-400 font-semibold">Formatrice Excel &amp; Power BI</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-4 leading-relaxed max-w-md">Ingénieure statistique, elle maîtrise l'analyse de données et la visualisation. Elle rend l'Excel avancé accessible à tous.</p>
+                <div class="flex gap-4 mt-4 text-blue-500 dark:text-blue-400 text-xl">
+                  <i class="fab fa-linkedin-in hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                  <i class="fab fa-twitter hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                  <i class="fab fa-github hover:text-gray-800 dark:hover:text-gray-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+                <div class="w-48 h-48 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-blue-100 dark:border-blue-800 transition-transform duration-300 hover:scale-105">
+                  <img src="images/formateur-5.jpeg" alt="Cheikh Mbaye" class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Cheikh Mbaye</h3>
+                <p class="text-blue-600 dark:text-blue-400 font-semibold">Formateur Word, PowerPoint &amp; Access</p>
+                <p class="text-gray-600 dark:text-gray-300 mt-4 leading-relaxed max-w-md">Spécialiste de la communication visuelle et des bases de données. Il vous guidera dans la création de documents professionnels.</p>
+                <div class="flex gap-4 mt-4 text-blue-500 dark:text-blue-400 text-xl">
+                  <i class="fab fa-linkedin-in hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                  <i class="fab fa-instagram hover:text-pink-600 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                  <i class="fab fa-behance hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn prev" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ VIDÉOS ═══════════════════ -->
+  <section id="videos" class="py-24 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Inspiration</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">🎬 Motivation &amp; Inspiration</h2>
+        <p class="text-gray-600 dark:text-gray-300 mt-3 fade-up">Des vidéos pour vous montrer ce que vous pouvez accomplir</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14">
+        <div class="video-card bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-700 fade-up" style="transition-delay: 0.1s;">
+          <video controls preload="metadata" poster="images/video-poster1.jpg" class="w-full aspect-video object-cover bg-gray-200 dark:bg-gray-700">
+            <source src="videos/video1.mp4" type="video/mp4">
+          </video>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 dark:text-white">🚀 Réussir dans la vie professionnelle</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Inspiration pour booster votre carrière</p>
+          </div>
+        </div>
+        <div class="video-card bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-700 fade-up" style="transition-delay: 0.2s;">
+          <video controls preload="metadata" poster="images/video-poster2.jpg" class="w-full aspect-video object-cover bg-gray-200 dark:bg-gray-700">
+            <source src="videos/video2.mp4" type="video/mp4">
+          </video>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 dark:text-white">🧠 Développement personnel et confiance</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Croyez en vous et atteignez vos objectifs</p>
+          </div>
+        </div>
+        <div class="video-card bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-700 fade-up" style="transition-delay: 0.3s;">
+          <video controls preload="metadata" poster="images/video-poster3.jpg" class="w-full aspect-video object-cover bg-gray-200 dark:bg-gray-700">
+            <source src="videos/video3.mp4" type="video/mp4">
+          </video>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 dark:text-white">📚 Apprendre pour transformer sa vie</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">La formation est la clé du succès</p>
+          </div>
+        </div>
+        <div class="video-card bg-white dark:bg-gray-900 shadow-lg border border-gray-200 dark:border-gray-700 fade-up" style="transition-delay: 0.4s;">
+          <video controls preload="metadata" poster="images/video-poster4.jpg" class="w-full aspect-video object-cover bg-gray-200 dark:bg-gray-700">
+            <source src="videos/video4.mp4" type="video/mp4">
+          </video>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-800 dark:text-white">⭐ Témoignage : ils ont réussi</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Des parcours inspirants à découvrir</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ GALERIE ═══════════════════ -->
+  <section id="galerie" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">En action</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Le formateur en séance</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">Découvrez l'ambiance de nos formations en image</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+        <div class="gallery-item fade-up" style="transition-delay: 0.1s;">
+          <img src="images/formateur-classe.jpeg" alt="Formateur expliquant" />
+          <div class="overlay">Explication sur tableau blanc</div>
+        </div>
+        <div class="gallery-item fade-up" style="transition-delay: 0.2s;">
+          <img src="images/formateur-classe2.jpeg" alt="Apprenants en pratique" />
+          <div class="overlay">Apprenants en pratique sur PC</div>
+        </div>
+        <div class="gallery-item fade-up" style="transition-delay: 0.3s;">
+          <img src="images/formateur-classe3.jpeg" alt="Formateur aidant" />
+          <div class="overlay">Accompagnement personnalisé</div>
+        </div>
+        <div class="gallery-item fade-up" style="transition-delay: 0.4s;">
+          <img src="images/formateur-4.jpeg" alt="Groupe en formation" />
+          <div class="overlay">Cours en petit groupe</div>
+        </div>
+        <div class="gallery-item fade-up" style="transition-delay: 0.5s;">
+          <img src="images/formateur-6.jpeg" alt="Projecteur" />
+          <div class="overlay">Utilisation de supports visuels</div>
+        </div>
+        <div class="gallery-item fade-up" style="transition-delay: 0.6s;">
+          <img src="images/formateur-7.jpeg" alt="Échange" />
+          <div class="overlay">Échanges interactifs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FAQ ═══════════════════ -->
+  <section id="faq" class="py-24 md:py-32 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Questions</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Foire aux questions</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">Tout ce que vous devez savoir avant de vous inscrire</p>
+      </div>
+      <div class="mt-14 space-y-4">
+        <details class="faq-item bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-700 p-6 fade-up group" style="transition-delay: 0.1s;">
+          <summary class="font-semibold text-gray-800 dark:text-white text-lg">
+            <span>Quels sont les prérequis pour suivre une formation ?</span>
+            <i class="fas fa-chevron-down text-blue-500 ml-4"></i>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">Aucun prérequis technique n'est demandé. Nos modules s'adressent aussi bien aux débutants qu'aux personnes souhaitant se perfectionner.</p>
+        </details>
+        <details class="faq-item bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-700 p-6 fade-up group" style="transition-delay: 0.2s;">
+          <summary class="font-semibold text-gray-800 dark:text-white text-lg">
+            <span>Les cours sont-ils individuels ou en groupe ?</span>
+            <i class="fas fa-chevron-down text-blue-500 ml-4"></i>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">Les cours se déroulent en petits groupes (5 à 8 personnes) pour garantir un suivi personnalisé et une interaction optimale.</p>
+        </details>
+        <details class="faq-item bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-700 p-6 fade-up group" style="transition-delay: 0.3s;">
+          <summary class="font-semibold text-gray-800 dark:text-white text-lg">
+            <span>Quelle est la durée des modules ?</span>
+            <i class="fas fa-chevron-down text-blue-500 ml-4"></i>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">La durée varie de 4 à 6 semaines selon le module (entre 24 et 36 heures de cours). Des horaires flexibles sont proposés.</p>
+        </details>
+        <details class="faq-item bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-700 p-6 fade-up group" style="transition-delay: 0.4s;">
+          <summary class="font-semibold text-gray-800 dark:text-white text-lg">
+            <span>Le certificat est-il reconnu ?</span>
+            <i class="fas fa-chevron-down text-blue-500 ml-4"></i>
+          </summary>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">Oui, notre certificat est délivré après validation d'un test final et il est reconnu par les entreprises partenaires.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ INSCRIPTION ═══════════════════ -->
+  <section id="inscription" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase">Inscription</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up">Réserve ta place dès maintenant</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 fade-up">Remplis le formulaire, nous te recontacterons dans les 24h</p>
+      </div>
+      <div class="mt-14 bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200 dark:border-gray-700 fade-up">
+        <form id="inscription-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="prenom" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Prénom <span class="text-red-500">*</span></label>
+            <input type="text" id="prenom" name="prenom" required class="input-interactive w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition bg-white dark:bg-gray-700 text-gray-800 dark:text-white" placeholder="Fatou" />
+          </div>
+          <div>
+            <label for="nom" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Nom <span class="text-red-500">*</span></label>
+            <input type="text" id="nom" name="nom" required class="input-interactive w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition bg-white dark:bg-gray-700 text-gray-800 dark:text-white" placeholder="Diop" />
+          </div>
+          <div>
+            <label for="telephone" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Téléphone <span class="text-red-500">*</span></label>
+            <input type="tel" id="telephone" name="telephone" required class="input-interactive w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition bg-white dark:bg-gray-700 text-gray-800 dark:text-white" placeholder="77 123 45 67" />
+          </div>
+          <div>
+            <label for="niveau" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Niveau d'étude <span class="text-red-500">*</span></label>
+            <select id="niveau" name="niveau" required class="input-interactive w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition bg-white dark:bg-gray-700 text-gray-800 dark:text-white appearance-none">
+              <option value="">Sélectionne ton niveau</option>
+              <option value="Primaire">Primaire</option>
+              <option value="Collège">Collège</option>
+              <option value="Lycée">Lycée</option>
+              <option value="Licence">Licence</option>
+              <option value="Master">Master</option>
+              <option value="Doctorat">Doctorat</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div>
+            <label for="module" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Module souhaité <span class="text-red-500">*</span></label>
+            <select id="module" name="module" required class="input-interactive w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition bg-white dark:bg-gray-700 text-gray-800 dark:text-white appearance-none">
+              <option value="">Choisis un module</option>
+              <option value="Module 1 : Windows + Word + IA">Module 1 : Windows + Word + IA – 30 000 FCFA</option>
+              <option value="Module 2 : Excel + PowerPoint">Module 2 : Excel + PowerPoint – 35 000 FCFA</option>
+              <option value="Module 3 : Excel Avancé Pro">Module 3 : Excel Avancé Pro – 40 000 FCFA</option>
+              <option value="Module 4 : Access (Base de données)">Module 4 : Access (Base de données) – 38 000 FCFA</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Remarque (optionnel)</label>
+            <textarea id="message" name="message" rows="3" class="input-interactive w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition bg-white dark:bg-gray-700 text-gray-800 dark:text-white" placeholder="Des questions ? Des précisions sur ton projet ?"></textarea>
+          </div>
+          <div class="md:col-span-2 flex justify-center">
+            <button type="submit" id="submit-btn" class="btn-ripple bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl inline-flex items-center gap-3 transition-all">
+              <i class="fas fa-paper-plane"></i> Envoyer ma demande
+            </button>
+          </div>
+          <p class="md:col-span-2 text-center text-sm text-gray-500 dark:text-gray-400 mt-2">
+            <i class="fas fa-lock text-blue-500 mr-1"></i> Tes données sont sécurisées et ne seront utilisées que pour te recontacter.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ GARANTIE ═══════════════════ -->
+  <section class="py-20 bg-gradient-to-br from-blue-700 to-indigo-800 dark:from-blue-900 dark:to-indigo-900 text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex justify-center mb-6">
+        <div class="bg-white/20 p-4 rounded-full backdrop-blur-sm transition-transform duration-300 hover:scale-110 cursor-default">
+          <i class="fas fa-shield-alt text-4xl"></i>
+        </div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Satisfait ou remboursé</h2>
+      <p class="mt-4 text-blue-50 text-lg max-w-2xl mx-auto font-light">Nous nous engageons sur la qualité de nos formations. Si après 7 jours vous n'êtes pas convaincu, nous vous remboursons intégralement.</p>
+      <a href="#inscription" class="btn-ripple mt-10 inline-block bg-white text-blue-700 hover:bg-blue-50 px-10 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl text-lg transition-all">
+        <i class="fas fa-arrow-right mr-2"></i> Je m'inscris maintenant
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer id="contact" class="bg-gray-900 dark:bg-black text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-110">
+              <img src="images/logo_du_site.jpeg" alt="Logo" class="w-full h-full object-cover rounded-xl" />
+            </div>
+            <span class="font-extrabold text-2xl tracking-tight">Bureautique<span class="text-blue-400">enPoc</span></span>
+          </div>
+          <p class="mt-4 text-gray-400 text-sm max-w-md leading-relaxed">Centre de formation spécialisé en informatique bureautique à Dakar. Formez-vous, certifiez-vous, employez-vous.</p>
+          <div class="mt-6 flex gap-4 text-2xl">
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-widest text-gray-400">Navigation</h4>
+          <ul class="mt-4 space-y-2 text-sm text-gray-300">
+            <li><a href="#formation" class="link-underline hover:text-white">Formation</a></li>
+            <li><a href="#tarifs" class="link-underline hover:text-white">Modules</a></li>
+            <li><a href="#temoignages" class="link-underline hover:text-white">Avis</a></li>
+            <li><a href="#formateur" class="link-underline hover:text-white">Formateur</a></li>
+            <li><a href="#videos" class="link-underline hover:text-white">Vidéos</a></li>
+            <li><a href="#galerie" class="link-underline hover:text-white">Galerie</a></li>
+            <li><a href="#faq" class="link-underline hover:text-white">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-widest text-gray-400">Contact</h4>
+          <address class="mt-4 text-sm text-gray-300 not-italic leading-relaxed">
+            <p class="hover:text-white transition-colors duration-300"><i class="fas fa-map-pin text-blue-400 mr-2"></i>Sacré-Cœur 1, Dakar</p>
+            <p class="hover:text-white transition-colors duration-300"><i class="fas fa-phone text-blue-400 mr-2"></i><a href="tel:+221771488124" class="hover:text-white">+221 77 148 81 24</a></p>
+            <p class="hover:text-white transition-colors duration-300"><i class="fas fa-envelope text-blue-400 mr-2"></i><a href="mailto:elousmanedrame@gmail.com" class="hover:text-white">elousmanedrame@gmail.com</a></p>
+          </address>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-gray-800 text-center text-sm text-gray-500">
+        &copy; 2026 BureautiqueenPoc · Tous droits réservés. <span class="mx-2">|</span> Conçu avec <i class="fas fa-heart text-red-400 mx-1"></i> à Dakar.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ WHATSAPP ═══════════════════ -->
+  <a href="https://wa.me/221771488124" target="_blank" rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 z-50 flex items-center justify-center group wa-pulse">
+  <i class="fab fa-whatsapp text-3xl"></i>
+  <span class="absolute right-full mr-4 bg-gray-800 text-white text-sm font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden sm:block shadow-lg">
+    Discuter sur WhatsApp
+  </span>
+</a>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+  // ─── Dark Mode ───
+  (function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeIconMobile = document.getElementById('theme-icon-mobile');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      const icon = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+      themeIcon.className = `fas ${icon}`;
+      themeIconMobile.className = `fas ${icon}`;
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+    themeToggleMobile.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+
+  // ─── Menu mobile ───
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
+
+  // ─── Animations scroll ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ─── Scroll fluide ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ─── Navbar effet ───
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 30) {
+      nav.classList.add('shadow-md', 'bg-white/80', 'dark:bg-gray-900/80');
+      nav.classList.remove('bg-white/70', 'dark:bg-gray-900/70');
+    } else {
+      nav.classList.remove('shadow-md', 'bg-white/80', 'dark:bg-gray-900/80');
+      nav.classList.add('bg-white/70', 'dark:bg-gray-900/70');
+    }
+  });
+
+  // ─── Ripple ───
+  document.querySelectorAll('.btn-ripple').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.style.width = '20px';
+      ripple.style.height = '20px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // ─── Compteurs ───
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseFloat(entry.target.dataset.target);
+        const duration = 2000;
+        const startTime = performance.now();
+        const isFloat = target % 1 !== 0;
+
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const value = progress * target;
+          entry.target.textContent = isFloat ? value.toFixed(1) : Math.floor(value);
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            entry.target.textContent = isFloat ? target.toFixed(1) : target;
+          }
+        }
+        requestAnimationFrame(updateCounter);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(counter => counterObserver.observe(counter));
+
+  // ─── Formulaire ───
+  document.getElementById('inscription-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const prenom = document.getElementById('prenom').value.trim();
+    const nom = document.getElementById('nom').value.trim();
+    const telephone = document.getElementById('telephone').value.trim();
+    const niveau = document.getElementById('niveau').value;
+    const module = document.getElementById('module').value;
+    const message = document.getElementById('message').value.trim();
+    if (!prenom || !nom || !telephone || !niveau || !module) {
+      alert('Veuillez remplir tous les champs obligatoires (*).');
+      return;
+    }
+    const sujet = `Inscription BureautiqueenPoc - ${prenom} ${nom}`;
+    const corps = `
+      Nouvelle demande d'inscription :
+
+      Prénom : ${prenom}
+      Nom : ${nom}
+      Téléphone : ${telephone}
+      Niveau d'étude : ${niveau}
+      Module choisi : ${module}
+      Remarque : ${message || 'Aucune remarque'}
+
+      ---
+      Envoyé depuis le formulaire d'inscription du site BureautiqueenPoc.
+    `;
+    window.location.href =
+      `mailto:elousmanedrame@gmail.com?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`;
+    alert('✅ Votre demande a été préparée. Votre client mail va s\'ouvrir, il ne vous reste plus qu\'à envoyer le message.');
+  });
+
+  // ─── Hero Slider : défilement automatique continu ───
+  (function() {
+    const slidesContainer = document.getElementById('hero-slides');
+    const slides = slidesContainer.querySelectorAll('.hero-slide');
+    const total = slides.length;
+    let current = 0;
+    let autoPlayInterval = null;
+    const prevBtn = document.getElementById('hero-prev');
+    const nextBtn = document.getElementById('hero-next');
+    const dotsContainer = document.getElementById('hero-dots');
+    let isTransitioning = false;
+
+    // Création des dots
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('hero-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.dataset.index = i;
+      dot.addEventListener('click', () => {
+        clearInterval(autoPlayInterval);
+        goToSlide(i);
+        startAutoPlay();
+      });
+      dotsContainer.appendChild(dot);
+    }
+
+    function goToSlide(index) {
+      if (isTransitioning) return;
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+      isTransitioning = true;
+      current = index;
+      slidesContainer.style.transition = 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+      slidesContainer.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 850);
+    }
+
+    function nextSlide() {
+      goToSlide(current + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(current - 1);
+    }
+
+    prevBtn.addEventListener('click', () => {
+      clearInterval(autoPlayInterval);
+      prevSlide();
+      startAutoPlay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      clearInterval(autoPlayInterval);
+      nextSlide();
+      startAutoPlay();
+    });
+
+    function startAutoPlay() {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Démarrage automatique
+    startAutoPlay();
+
+    // Pause au survol, reprise à la sortie
+    const heroSection = document.querySelector('.hero-slider');
+    heroSection.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    heroSection.addEventListener('mouseleave', startAutoPlay);
+
+    // Support tactile
+    let touchStartX = 0,
+      touchEndX = 0;
+    heroSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    heroSection.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        clearInterval(autoPlayInterval);
+        diff > 0 ? nextSlide() : prevSlide();
+        startAutoPlay();
+      }
+    }, { passive: true });
+  })();
+
+  // ─── Carousel formateur ───
+  (function() {
+    const track = document.getElementById('carousel-track');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let autoPlayInterval = null;
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dotsContainer = document.getElementById('carousel-dots');
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.dataset.index = i;
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function nextSlide() { goToSlide(currentIndex + 1); }
+
+    function prevSlide() { goToSlide(currentIndex - 1); }
+
+    prevBtn.addEventListener('click', () => {
+      clearInterval(autoPlayInterval);
+      prevSlide();
+      startAutoPlay();
+    });
+    nextBtn.addEventListener('click', () => {
+      clearInterval(autoPlayInterval);
+      nextSlide();
+      startAutoPlay();
+    });
+
+    function startAutoPlay() {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+    startAutoPlay();
+
+    const container = document.querySelector('.carousel-container');
+    container.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    container.addEventListener('mouseleave', startAutoPlay);
+
+    let touchStartX = 0,
+      touchEndX = 0;
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        clearInterval(autoPlayInterval);
+        diff > 0 ? nextSlide() : prevSlide();
+        startAutoPlay();
+      }
+    }, { passive: true });
+  })();
+
+  // ─── Vidéos : une seule lecture ───
+  (function() {
+    const videos = document.querySelectorAll('#videos video');
+    videos.forEach(video => {
+      video.addEventListener('play', function() {
+        videos.forEach(other => {
+          if (other !== this && !other.paused) {
+            other.pause();
+          }
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
