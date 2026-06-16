@@ -87,7 +87,6 @@
     @keyframes pulse-ring { 0% { box-shadow:0 0 0 0 rgba(37,99,235,0.3); } 70% { box-shadow:0 0 0 20px rgba(37,99,235,0); } 100% { box-shadow:0 0 0 0 rgba(37,99,235,0); } }
     @keyframes rippleAnim { to { transform:scale(4); opacity:0; } }
 
-    /* ── CORRECTION 1 : fade-up — rendu visible immédiatement si déjà dans le viewport ── */
     .fade-up { opacity:0; transform:translateY(30px); transition:all 0.8s cubic-bezier(0.22,1,0.36,1); }
     .fade-up.visible { opacity:1; transform:translateY(0); }
 
@@ -129,21 +128,24 @@
     html[data-theme="dark"] ::-webkit-scrollbar-track { background:#1a253b; }
     html[data-theme="dark"] ::-webkit-scrollbar-thumb { background:#3b82f6; }
 
-    /* ─── Hero ─── */
+    /* ─── Hero Slider ─── */
     .hero-slider {
       position: relative;
       width: 100%;
       overflow: hidden;
       min-height: 100vh;
       min-height: 100svh;
+      background: #0b1120;
     }
+
     .hero-slides {
       display: flex;
       width: 100%;
-      transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
       height: 100vh;
       height: 100svh;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
     .hero-slide {
       flex: 0 0 100%;
       width: 100%;
@@ -151,10 +153,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 5rem 1.25rem 4rem;
+      padding: 5rem 1.5rem 4rem;
       position: relative;
       overflow: hidden;
+      background-size: cover;
+      background-position: center;
     }
+
     .hero-slide .content {
       max-width: 820px;
       width: 100%;
@@ -162,19 +167,31 @@
       position: relative;
       z-index: 2;
       animation: fadeUp 0.9s ease forwards;
+      padding: 0 0.5rem;
     }
+
     .hero-slide-first {
-      background: linear-gradient(135deg,rgba(30,58,138,0.8),rgba(30,64,175,0.7)), url('images/logo_du_site.jpeg') no-repeat center center / cover;
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(30, 64, 175, 0.7)),
+                  url('images/logo_du_site.jpeg') no-repeat center center / cover;
+    }
+    .hero-slide:nth-child(2) {
+      background: linear-gradient(135deg, #0b1120, #1a253b, #0b1120);
+    }
+    .hero-slide:nth-child(3) {
+      background: linear-gradient(135deg, #1a2a5f, #1e3a8a, #1a2a5f);
+    }
+    .hero-slide:nth-child(4) {
+      background: linear-gradient(135deg, #0b1120, #1a1b4b, #0b1120);
     }
 
     .hero-h1 {
-      font-size: clamp(1.6rem, 6vw, 4.5rem);
+      font-size: clamp(1.8rem, 7vw, 4.5rem);
       font-weight: 900;
       line-height: 1.15;
       letter-spacing: -0.02em;
     }
     .hero-h2 {
-      font-size: clamp(1.5rem, 5.5vw, 3.75rem);
+      font-size: clamp(1.6rem, 6.5vw, 3.75rem);
       font-weight: 900;
       line-height: 1.15;
     }
@@ -188,35 +205,39 @@
       font-size: clamp(0.9rem, 2.5vw, 1.25rem);
       line-height: 1.6;
       margin-top: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: clamp(0.7rem, 2vw, 0.75rem);
+      font-size: clamp(0.65rem, 1.8vw, 0.75rem);
       font-weight: 600;
-      padding: 0.375rem 1rem;
+      padding: 0.35rem 1rem;
       border-radius: 9999px;
       margin-bottom: 1rem;
       letter-spacing: 0.05em;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(4px);
     }
+
     .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 0.375rem;
-      background: rgba(255,255,255,0.10);
+      background: rgba(255, 255, 255, 0.10);
       backdrop-filter: blur(4px);
       padding: 0.375rem 0.75rem;
       border-radius: 9999px;
-      font-size: clamp(0.7rem, 2vw, 0.875rem);
+      font-size: clamp(0.65rem, 1.8vw, 0.875rem);
       margin: 0.2rem;
     }
     .hero-pill img {
       width: 18px;
       height: 18px;
-    }
-    @media (min-width: 640px) {
-      .hero-pill img { width: 22px; height: 22px; }
     }
 
     .hero-btn-row {
@@ -231,6 +252,7 @@
       .hero-btn-row {
         flex-direction: row;
         align-items: center;
+        justify-content: center;
       }
     }
     .hero-cta {
@@ -250,9 +272,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
       width: 44px;
       height: 44px;
@@ -265,35 +287,168 @@
       color: white;
       font-size: 1rem;
     }
-    .hero-btn:hover { background:rgba(255,255,255,0.25); transform:translateY(-50%) scale(1.1); }
-    .hero-btn.prev { left: 0.75rem; }
-    .hero-btn.next { right: 0.75rem; }
+    .hero-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .hero-btn.prev {
+      left: 0.75rem;
+    }
+    .hero-btn.next {
+      right: 0.75rem;
+    }
 
     .hero-dots {
       position: absolute;
-      bottom: 1rem;
+      bottom: 1.25rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 0.6rem;
+      gap: 0.75rem;
       z-index: 20;
     }
     .hero-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255, 255, 255, 0.3);
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
       flex-shrink: 0;
     }
-    .hero-dot:hover { background:rgba(255,255,255,0.6); transform:scale(1.2); }
-    .hero-dot.active { background:#ffffff; transform:scale(1.3); box-shadow:0 0 20px rgba(255,255,255,0.3); }
+    .hero-dot:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(1.2);
+    }
+    .hero-dot.active {
+      background: #ffffff;
+      transform: scale(1.4);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    /* ─── RESPONSIVE HERO ─── */
+    @media (max-width: 640px) {
+      .hero-slider {
+        min-height: 90vh;
+        min-height: 90svh;
+      }
+      .hero-slides {
+        height: 90vh;
+        height: 90svh;
+      }
+      .hero-slide {
+        padding: 4rem 1rem 2.5rem;
+      }
+      .hero-slide .content {
+        padding: 0 0.25rem;
+      }
+      .hero-h1 {
+        font-size: clamp(1.4rem, 8vw, 2.2rem);
+      }
+      .hero-h2 {
+        font-size: clamp(1.3rem, 7.5vw, 2rem);
+      }
+      .hero-p {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        margin-top: 0.75rem;
+      }
+      .hero-blockquote {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+      }
+      .hero-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+      }
+      .hero-btn.prev {
+        left: 0.25rem;
+      }
+      .hero-btn.next {
+        right: 0.25rem;
+      }
+      .hero-dots {
+        gap: 0.6rem;
+        bottom: 0.75rem;
+      }
+      .hero-dot {
+        width: 14px;
+        height: 14px;
+      }
+      .hero-badge {
+        font-size: clamp(0.6rem, 2.5vw, 0.7rem);
+        padding: 0.25rem 0.75rem;
+      }
+      .hero-pill {
+        font-size: clamp(0.6rem, 2.5vw, 0.7rem);
+        padding: 0.25rem 0.6rem;
+      }
+      .hero-pill img {
+        width: 14px;
+        height: 14px;
+      }
+      .hero-cta {
+        padding: 0.65rem 1.25rem;
+        font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-slide {
+        padding: 3.5rem 0.75rem 2rem;
+      }
+      .hero-h1 {
+        font-size: clamp(1.2rem, 10vw, 1.8rem);
+      }
+      .hero-h2 {
+        font-size: clamp(1.1rem, 9vw, 1.6rem);
+      }
+      .hero-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      .hero-btn.prev {
+        left: 0.15rem;
+      }
+      .hero-btn.next {
+        right: 0.15rem;
+      }
+      .hero-dot {
+        width: 12px;
+        height: 12px;
+      }
+    }
 
     @media (max-height: 480px) and (orientation: landscape) {
-      .hero-slider, .hero-slides { min-height: 130vh; height: 130vh; }
-      .hero-slide { padding: 4rem 1rem 2.5rem; }
+      .hero-slider {
+        min-height: 130vh;
+        min-height: 130svh;
+      }
+      .hero-slides {
+        height: 130vh;
+        height: 130svh;
+      }
+      .hero-slide {
+        padding: 3rem 1rem 1.5rem;
+      }
+      .hero-h1 {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+      }
+      .hero-h2 {
+        font-size: clamp(1.1rem, 4.5vw, 1.8rem);
+      }
+      .hero-p {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+      }
+      .hero-btn-row {
+        margin-top: 0.75rem;
+        flex-direction: row;
+      }
+      .hero-cta {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+      }
     }
 
     /* ─── Carousel formateur ─── */
@@ -351,9 +506,7 @@
     .faq-item .fa-chevron-down { transition:transform 0.3s ease; flex-shrink:0; }
     .faq-item[open] .fa-chevron-down { transform:rotate(180deg); }
 
-    /* ─── CORRECTION 2 : Galerie — scale sur l'img intérieure, pas sur le conteneur ─── */
-    /* Le overflow:hidden reste sur .gallery-item pour clipper l'image qui grossit */
-    /* Le :hover NE fait plus de scale sur le conteneur (évite les bords coupés) */
+    /* ─── Galerie ─── */
     .gallery-item {
       cursor:pointer;
       transition: box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
@@ -365,7 +518,6 @@
     .gallery-item:hover {
       box-shadow:0 20px 40px -12px rgba(0,0,0,0.18);
     }
-    /* CORRECTION 3 : hauteur fixe mobile + transition sur l'img uniquement */
     .gallery-item img {
       width:100%;
       height: 220px;
@@ -390,7 +542,6 @@
       font-weight:600;
       font-size:0.85rem;
       letter-spacing:0.3px;
-      /* Assure que l'overlay est toujours visible */
       opacity: 1;
       transition: opacity 0.3s ease;
     }
@@ -473,14 +624,14 @@
       <!-- Slide 1 -->
       <div class="hero-slide hero-slide-first">
         <div class="content">
-          <span class="hero-badge bg-white/15 backdrop-blur-sm text-white">
+          <span class="hero-badge">
             <i class="fas fa-certificate"></i> Centre agréé · Dakar Sacré-Cœur
           </span>
           <h1 class="hero-h1">
             Maîtrise la bureautique,<br />
             <span class="gradient-text">booste ta carrière</span>
           </h1>
-          <p class="hero-p text-blue-50/90 max-w-2xl mx-auto">
+          <p class="hero-p text-blue-50/90">
             Formation pratique en <strong class="text-white font-semibold">Windows, Word, Excel, PowerPoint, Access &amp; IA</strong>.<br />
             4 modules spécialisés, certificat reconnu, petits groupes.
           </p>
@@ -496,15 +647,15 @@
       </div>
 
       <!-- Slide 2 -->
-      <div class="hero-slide" style="background:linear-gradient(135deg,#0b1120,#1a253b,#0b1120);">
+      <div class="hero-slide">
         <div class="content">
-          <span class="hero-badge bg-blue-500/20 backdrop-blur-sm text-white">
+          <span class="hero-badge">
             <i class="fas fa-rocket"></i> 4 modules sur mesure
           </span>
           <h2 class="hero-h2">
             De <span class="text-yellow-400">Windows</span> à l'<span class="text-yellow-400">IA</span>,<br />tout en un
           </h2>
-          <p class="hero-p text-blue-50/80 max-w-2xl mx-auto">
+          <p class="hero-p text-blue-50/80">
             Choisis parmi 4 spécialités : Windows+Word+IA, Excel+PowerPoint, Excel Avancé Pro, ou Access.
           </p>
           <div style="margin-top:1.25rem; display:flex; flex-wrap:wrap; justify-content:center; gap:0.25rem;">
@@ -524,9 +675,9 @@
       </div>
 
       <!-- Slide 3 -->
-      <div class="hero-slide" style="background:linear-gradient(135deg,#1a2a5f,#1e3a8a,#1a2a5f);">
+      <div class="hero-slide">
         <div class="content">
-          <span class="hero-badge bg-yellow-400/20 backdrop-blur-sm text-white">
+          <span class="hero-badge">
             <i class="fas fa-star text-yellow-400"></i> 4,9/5 de satisfaction
           </span>
           <blockquote class="hero-blockquote max-w-2xl mx-auto" style="margin-top:0.5rem;">
@@ -548,15 +699,15 @@
       </div>
 
       <!-- Slide 4 -->
-      <div class="hero-slide" style="background:linear-gradient(135deg,#0b1120,#1a1b4b,#0b1120);">
+      <div class="hero-slide">
         <div class="content">
-          <span class="hero-badge bg-green-500/20 backdrop-blur-sm text-white">
+          <span class="hero-badge">
             <i class="fas fa-graduation-cap"></i> Prêt à commencer ?
           </span>
           <h2 class="hero-h2">
             Inscris-toi dès <span class="text-green-400">maintenant</span>
           </h2>
-          <p class="hero-p text-blue-50/80 max-w-2xl mx-auto">
+          <p class="hero-p text-blue-50/80">
             Remplis le formulaire et nous te recontacterons sous 24h.
           </p>
           <div class="hero-btn-row">
@@ -748,8 +899,8 @@
                 <div class="w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-blue-100 dark:border-blue-800 transition-transform duration-300 hover:scale-105">
                   <img src="images/logo2.jpeg" alt="Aïssatou Diallo" class="w-full h-full object-cover" />
                 </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Aïssatou Diallo</h3>
-                <p class="text-blue-600 dark:text-blue-400 font-semibold">Formatrice Excel &amp; Power BI</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">OUSMANE DRAME</h3>
+                <p class="text-blue-600 dark:text-blue-400 font-semibold">Formateur Excel &amp; Power BI</p>
                 <p class="text-gray-600 dark:text-gray-300 mt-4 leading-relaxed max-w-md text-sm sm:text-base">Ingénieure statistique, elle maîtrise l'analyse de données et la visualisation. Elle rend l'Excel avancé accessible à tous.</p>
                 <div class="flex gap-4 mt-4 text-blue-500 dark:text-blue-400 text-xl">
                   <i class="fab fa-linkedin-in hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 cursor-pointer hover:scale-110"></i>
@@ -763,7 +914,7 @@
                 <div class="w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-blue-100 dark:border-blue-800 transition-transform duration-300 hover:scale-105">
                   <img src="images/formateur-5.jpeg" alt="Cheikh Mbaye" class="w-full h-full object-cover" />
                 </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Cheikh Mbaye</h3>
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">OUSMANE DRAME</h3>
                 <p class="text-blue-600 dark:text-blue-400 font-semibold">Formateur Word, PowerPoint &amp; Access</p>
                 <p class="text-gray-600 dark:text-gray-300 mt-4 leading-relaxed max-w-md text-sm sm:text-base">Spécialiste de la communication visuelle et des bases de données. Il vous guidera dans la création de documents professionnels.</p>
                 <div class="flex gap-4 mt-4 text-blue-500 dark:text-blue-400 text-xl">
@@ -832,7 +983,6 @@
           <img src="images/formateur-classe3.jpeg" alt="Formateur aidant" loading="lazy" />
           <div class="overlay">Accompagnement personnalisé</div>
         </div>
-         
         <div class="gallery-item fade-up" style="transition-delay:0.5s;">
           <img src="images/formateur-6.jpeg" alt="Projecteur" loading="lazy" />
           <div class="overlay">Utilisation de supports visuels</div>
@@ -1035,10 +1185,9 @@
     menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-    // ─── CORRECTION : Animations scroll — visibilité immédiate si déjà dans le viewport ───
+    // ─── Animations scroll ───
     (function() {
       const fadeEls = document.querySelectorAll('.fade-up');
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1047,9 +1196,7 @@
           }
         });
       }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
       fadeEls.forEach(el => {
-        // Si l'élément est déjà visible dans le viewport au chargement → visible immédiatement
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           el.classList.add('visible');
@@ -1190,7 +1337,7 @@
       }, { passive: true });
     })();
 
-    // ─── Vidéos : une seule lecture à la fois ───
+    // ─── Vidéos : une seule lecture ───
     (function() {
       const videos = document.querySelectorAll('#videos video');
       videos.forEach(video => {
