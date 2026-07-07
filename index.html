@@ -7,6 +7,13 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <title>Bureautique en Poche · Formation bureautique à Dakar</title>
+    
+    <!-- ═══════════════════ OPTIMISATION GOOGLE FORMS ═══════════════════ -->
+    <link rel="preconnect" href="https://forms.gle" />
+    <link rel="preconnect" href="https://docs.google.com" />
+    <link rel="dns-prefetch" href="https://forms.gle" />
+    <link rel="dns-prefetch" href="https://docs.google.com" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,8 +26,73 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+
+  <style>
+    /* ─── SPINNER POUR LE LOADER ─── */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .loader-spinner {
+      width: 56px;
+      height: 56px;
+      border: 4px solid #e2e8f0;
+      border-top-color: #060097;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .loader-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .loader-overlay.active {
+      display: flex;
+    }
+    .loader-overlay p {
+      color: #1e293b;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .loader-overlay .sub {
+      color: #67768e;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      margin-top: -0.25rem;
+    }
+
+    /* ─── DARK MODE LOADER ─── */
+    html[data-theme="dark"] .loader-overlay {
+      background: rgba(255, 255, 255, 0.92);
+    }
+    html[data-theme="dark"] .loader-overlay p {
+      color: #0f172a;
+    }
+    html[data-theme="dark"] .loader-spinner {
+      border-color: #d1d5db;
+      border-top-color: #060097;
+    }
+  </style>
   </head>
   <body>
+
+    <!-- ═══════════════════ OVERLAY DE CHARGEMENT ═══════════════════ -->
+    <div class="loader-overlay" id="loading-overlay">
+      <div class="loader-spinner"></div>
+      <p>Chargement du formulaire...</p>
+      <p class="sub">Vous serez redirigé dans quelques secondes</p>
+    </div>
+
     <!-- ═══════════════════ NAVBAR ═══════════════════ -->
     <nav
       class="fixed top-0 left-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl shadow-sm z-50 border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300"
@@ -58,7 +130,10 @@
           </button>
           <a
             href="https://forms.gle/qofSt9mfwkhLYro18"
+            target="_blank"
+            rel="noopener noreferrer"
             class="btn-ripple bg-blue-600 hover:bg-blue-700 text-white px-5 lg:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all whitespace-nowrap"
+            onclick="showLoader()"
             >Inscription</a
           >
         </div>
@@ -91,7 +166,10 @@
         <a href="#contact" class="mobile-link block">Contact</a>
         <a
           href="https://forms.gle/qofSt9mfwkhLYro18"
+          target="_blank"
+          rel="noopener noreferrer"
           class="btn-ripple block bg-blue-600 text-white text-center px-4 py-2.5 rounded-full hover:bg-blue-700"
+          onclick="showLoader()"
           >Inscription</a
         >
       </div>
@@ -126,7 +204,10 @@
               </a>
               <a
                 href="https://forms.gle/qofSt9mfwkhLYro18"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn-ripple hero-cta bg-transparent border-2 border-white hover:bg-white hover:text-blue-700"
+                onclick="showLoader()"
               >
                 <i class="fas fa-user-plus"></i> Réserver ma place
               </a>
@@ -283,7 +364,10 @@
             <div class="hero-btn-row">
               <a
                 href="https://forms.gle/qofSt9mfwkhLYro18"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="btn-ripple hero-cta bg-green-500 hover:bg-green-600 text-white shadow-xl hover:shadow-2xl"
+                onclick="showLoader()"
               >
                 <i class="fas fa-pencil-alt"></i> Je m'inscris
               </a>
@@ -391,6 +475,132 @@
       </div>
     </section>
 
+    <!-- ═══════════════════ NOS CHIFFRES (IMPACT) ═══════════════════ -->
+    <section
+      id="chiffres"
+      class="py-16 sm:py-24 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <span
+            class="text-blue-600 dark:text-blue-400 font-semibold text-sm tracking-[0.2em] uppercase"
+            >Impact</span
+          >
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-white mt-2 fade-up"
+          >
+            Notre impact depuis <span class="text-blue-600 dark:text-blue-400">2016</span>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 mt-3 fade-up">
+            Des chiffres qui témoignent de notre engagement pour la formation et l'insertion professionnelle.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-10 sm:mt-14"
+        >
+          <!-- Total Apprenants -->
+          <div
+            class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 text-center fade-up"
+            style="transition-delay: 0.1s"
+          >
+            <div class="text-4xl text-blue-500 dark:text-blue-400 mb-3">
+              <i class="fas fa-users"></i>
+            </div>
+            <div
+              class="text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-white counter"
+              data-target="4500"
+            >
+              0
+            </div>
+            <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 mt-1">
+              Personnes formées
+            </p>
+            <p class="text-xs text-gray-400 dark:text-gray-500">au moins une formation</p>
+            <div class="mt-3 h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Femmes formées -->
+          <div
+            class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 text-center fade-up"
+            style="transition-delay: 0.2s"
+          >
+            <div class="text-4xl text-pink-500 dark:text-pink-400 mb-3">
+              <i class="fas fa-female"></i>
+            </div>
+            <div
+              class="text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-white counter"
+              data-target="2880"
+            >
+              0
+            </div>
+            <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 mt-1">
+              Femmes formées
+            </p>
+            <p class="text-xs text-gray-400 dark:text-gray-500">64% des apprenants</p>
+            <div class="mt-3 h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-pink-400 to-rose-500 rounded-full progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Hommes formés -->
+          <div
+            class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 text-center fade-up"
+            style="transition-delay: 0.3s"
+          >
+            <div class="text-4xl text-blue-500 dark:text-blue-400 mb-3">
+              <i class="fas fa-male"></i>
+            </div>
+            <div
+              class="text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-white counter"
+              data-target="1620"
+            >
+              0
+            </div>
+            <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 mt-1">
+              Hommes formés
+            </p>
+            <p class="text-xs text-gray-400 dark:text-gray-500">36% des apprenants</p>
+            <div class="mt-3 h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Partenaires -->
+          <div
+            class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-md card-hover border border-gray-200 dark:border-gray-700 text-center fade-up"
+            style="transition-delay: 0.4s"
+          >
+            <div class="text-4xl text-yellow-400 mb-3">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div
+              class="text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-white counter"
+              data-target="45"
+            >
+              0
+            </div>
+            <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 mt-1">
+              Partenaires
+            </p>
+            <p class="text-xs text-gray-400 dark:text-gray-500">entreprises et organisations</p>
+            <div class="mt-3 h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            <i class="fas fa-arrow-right text-blue-500 dark:text-blue-400 mr-2"></i>
+            Des chiffres qui motivent, des parcours qui transforment.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════════ TARIFS ═══════════════════ -->
     <section
       id="tarifs"
@@ -441,7 +651,7 @@
             <div class="mt-4 text-center">
               <span
                 class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400"
-                >30 000</span
+                >20 000</span
               ><span class="text-gray-500 dark:text-gray-400 text-sm">
                 FCFA</span
               >
@@ -472,7 +682,10 @@
             </ul>
             <a
               href="https://forms.gle/qofSt9mfwkhLYro18"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
+              onclick="showLoader()"
               >Je m'inscris</a
             >
           </div>
@@ -500,7 +713,7 @@
             <div class="mt-4 text-center">
               <span
                 class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400"
-                >35 000</span
+                >20 000</span
               ><span class="text-gray-500 dark:text-gray-400 text-sm">
                 FCFA</span
               >
@@ -531,7 +744,10 @@
             </ul>
             <a
               href="https://forms.gle/qofSt9mfwkhLYro18"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
+              onclick="showLoader()"
               >Je m'inscris</a
             >
           </div>
@@ -560,7 +776,7 @@
             <div class="mt-4 text-center">
               <span
                 class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400"
-                >40 000</span
+                >20 000</span
               ><span class="text-gray-500 dark:text-gray-400 text-sm">
                 FCFA</span
               >
@@ -591,7 +807,10 @@
             </ul>
             <a
               href="https://forms.gle/qofSt9mfwkhLYro18"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
+              onclick="showLoader()"
               >Je m'inscris</a
             >
           </div>
@@ -602,7 +821,7 @@
             <div class="module-logo">
               <img
                 src="https://img.icons8.com/color/48/000000/microsoft-access.png"
-                alt="Access"
+                alt=""
               />
             </div>
             <h3
@@ -616,7 +835,7 @@
             <div class="mt-4 text-center">
               <span
                 class="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400"
-                >38 000</span
+                >25 000</span
               ><span class="text-gray-500 dark:text-gray-400 text-sm">
                 FCFA</span
               >
@@ -647,7 +866,10 @@
             </ul>
             <a
               href="https://forms.gle/qofSt9mfwkhLYro18"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn-ripple mt-8 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
+              onclick="showLoader()"
               >Je m'inscris</a
             >
           </div>
@@ -1100,12 +1322,6 @@
               </p>
             </div>
           </div>
-          
-           
-           
-           
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1259,9 +1475,6 @@
       </div>
     </section>
 
-
-    
-
     <!-- ═══════════════════ GARANTIE ═══════════════════ -->
     <section
       class="py-14 sm:py-20 bg-gradient-to-br from-blue-700 to-indigo-800 dark:from-blue-900 dark:to-indigo-900 text-white"
@@ -1285,7 +1498,10 @@
         </p>
         <a
           href="https://forms.gle/qofSt9mfwkhLYro18"
+          target="_blank"
+          rel="noopener noreferrer"
           class="btn-ripple mt-8 sm:mt-10 inline-block bg-white text-blue-700 hover:bg-blue-50 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold shadow-xl hover:shadow-2xl text-base sm:text-lg transition-all"
+          onclick="showLoader()"
         >
           <i class="fas fa-arrow-right mr-2"></i> Je m'inscris maintenant
         </a>
@@ -1441,335 +1657,351 @@
 
     <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
     <script>
-      // ─── Dark Mode ───
-      (function () {
-        const themeToggle = document.getElementById("theme-toggle");
-        const themeToggleMobile = document.getElementById(
-          "theme-toggle-mobile",
-        );
-        const themeIcon = document.getElementById("theme-icon");
-        const themeIconMobile = document.getElementById("theme-icon-mobile");
-        const html = document.documentElement;
-        function setTheme(theme) {
-          html.setAttribute("data-theme", theme);
-          localStorage.setItem("theme", theme);
-          const icon = theme === "dark" ? "fa-sun" : "fa-moon";
-          themeIcon.className = "fas " + icon;
-          themeIconMobile.className = "fas " + icon;
-        }
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-          setTheme(savedTheme);
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          setTheme("dark");
-        } else {
-          setTheme("light");
-        }
-        themeToggle.addEventListener("click", () => {
-          setTheme(
-            html.getAttribute("data-theme") === "dark" ? "light" : "dark",
-          );
-        });
-        themeToggleMobile.addEventListener("click", () => {
-          setTheme(
-            html.getAttribute("data-theme") === "dark" ? "light" : "dark",
-          );
-        });
-      })();
+    // ─── DARK MODE ───
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+      const toggleMobile = document.getElementById('theme-toggle-mobile');
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+      const html = document.documentElement;
 
-      // ─── Menu mobile ───
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      menuBtn.addEventListener("click", () =>
-        mobileMenu.classList.toggle("hidden"),
-      );
-      document
-        .querySelectorAll("#mobile-menu a")
-        .forEach((link) =>
-          link.addEventListener("click", () =>
-            mobileMenu.classList.add("hidden"),
-          ),
-        );
+      function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+        icon.className = 'fas ' + iconClass;
+        iconMobile.className = 'fas ' + iconClass;
+      }
 
-      // ─── Animations scroll ───
-      (function () {
-        const fadeEls = document.querySelectorAll(".fade-up");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
-        );
-        fadeEls.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add("visible");
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        setTheme(saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+
+      toggle.addEventListener('click', () => {
+        setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+      toggleMobile.addEventListener('click', () => {
+        setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      });
+    })();
+
+    // ─── MOBILE MENU ───
+    (function() {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    })();
+
+    // ─── NAVBAR SCROLL ───
+    (function() {
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        nav.classList.toggle('shadow-md', window.scrollY > 30);
+      });
+    })();
+
+    // ─── FADE-UP ANIMATIONS ───
+    (function() {
+      const els = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.05 });
+      els.forEach(el => observer.observe(el));
+    })();
+
+    // ─── COMPTEURS ANIMÉS ───
+    (function() {
+      const counters = document.querySelectorAll('.counter');
+      const bars = document.querySelectorAll('.progress-bar');
+      let animationId = null;
+      let isAnimating = false;
+
+      function resetCounters() {
+        counters.forEach((c, i) => {
+          c.textContent = '0';
+          if (bars[i]) bars[i].style.width = '0%';
+        });
+        isAnimating = false;
+        if (animationId) { cancelAnimationFrame(animationId);
+          animationId = null; }
+      }
+
+      function animateCounters() {
+        if (isAnimating) return;
+        isAnimating = true;
+        const duration = 2000;
+        const startTime = performance.now();
+        const targets = [];
+        counters.forEach((c, i) => {
+          targets.push({
+            el: c,
+            target: parseInt(c.getAttribute('data-target'), 10),
+            bar: bars[i] || null,
+            current: 0
+          });
+        });
+
+        function update(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          targets.forEach(item => {
+            const val = Math.floor(ease * item.target);
+            item.current = val;
+            item.el.textContent = val.toLocaleString();
+            if (item.bar) {
+              item.bar.style.width = Math.min((val / item.target) * 100, 100) + '%';
+            }
+          });
+          if (progress < 1) {
+            animationId = requestAnimationFrame(update);
           } else {
-            observer.observe(el);
-          }
-        });
-      })();
-
-      // ─── Scroll fluide ───
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          const href = this.getAttribute("href");
-          if (href === "#") return;
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            const navHeight = document.querySelector("nav").offsetHeight;
-            window.scrollTo({
-              top:
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                navHeight -
-                20,
-              behavior: "smooth",
+            targets.forEach(item => {
+              item.el.textContent = item.target.toLocaleString();
+              if (item.bar) item.bar.style.width = '100%';
             });
+            isAnimating = false;
+            animationId = null;
           }
-        });
-      });
-
-      // ─── Navbar effet scroll ───
-      window.addEventListener("scroll", () => {
-        const nav = document.querySelector("nav");
-        if (window.scrollY > 30) {
-          nav.classList.add("shadow-md");
-        } else {
-          nav.classList.remove("shadow-md");
         }
-      });
+        animationId = requestAnimationFrame(update);
+      }
 
-      // ─── Ripple ───
-      document.querySelectorAll(".btn-ripple").forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-          const rect = this.getBoundingClientRect();
-          const ripple = document.createElement("span");
-          ripple.classList.add("ripple");
-          ripple.style.left = e.clientX - rect.left + "px";
-          ripple.style.top = e.clientY - rect.top + "px";
-          ripple.style.width = "20px";
-          ripple.style.height = "20px";
-          this.appendChild(ripple);
-          setTimeout(() => ripple.remove(), 600);
-        });
-      });
-
-      // ─── Hero Slider ───
-      (function () {
-        const slidesContainer = document.getElementById("hero-slides");
-        const slides = slidesContainer.querySelectorAll(".hero-slide");
-        const total = slides.length;
-        let current = 0;
-        let autoPlayInterval = null;
-        let isTransitioning = false;
-        const dotsContainer = document.getElementById("hero-dots");
-
-        for (let i = 0; i < total; i++) {
-          const dot = document.createElement("button");
-          dot.classList.add("hero-dot");
-          if (i === 0) dot.classList.add("active");
-          dot.dataset.index = i;
-          dot.addEventListener("click", () => {
-            clearInterval(autoPlayInterval);
-            goToSlide(i);
-            startAutoPlay();
+      const section = document.querySelector('#chiffres');
+      if (section) {
+        let prevVisible = false;
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const visible = entry.isIntersecting;
+            if (visible && !prevVisible) {
+              resetCounters();
+              setTimeout(animateCounters, 80);
+            } else if (!visible && prevVisible) {
+              resetCounters();
+            }
+            prevVisible = visible;
           });
-          dotsContainer.appendChild(dot);
+        }, { threshold: 0.1 });
+        obs.observe(section);
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+          prevVisible = true;
+          setTimeout(animateCounters, 400);
         }
+      }
+    })();
 
-        function goToSlide(index) {
-          if (isTransitioning) return;
-          if (index < 0) index = total - 1;
-          if (index >= total) index = 0;
-          isTransitioning = true;
-          current = index;
-          slidesContainer.style.transition =
-            "transform 0.8s cubic-bezier(0.22,1,0.36,1)";
-          slidesContainer.style.transform =
-            "translateX(-" + current * 100 + "%)";
-          document
-            .querySelectorAll(".hero-dot")
-            .forEach((dot, i) => dot.classList.toggle("active", i === current));
+    // ─── HERO SLIDER ───
+    (function() {
+      const container = document.getElementById('hero-slides');
+      const slides = container.querySelectorAll('.hero-slide');
+      const total = slides.length;
+      let current = 0;
+      let autoPlay = null;
+      let isTransitioning = false;
+      const dotsContainer = document.getElementById('hero-dots');
+
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('hero-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => { clearInterval(autoPlay);
+          goTo(i);
+          startAutoPlay(); });
+        dotsContainer.appendChild(dot);
+      }
+
+      function goTo(index) {
+        if (isTransitioning) return;
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        isTransitioning = true;
+        current = index;
+        container.style.transition = 'transform 0.8s cubic-bezier(0.22,1,0.36,1)';
+        container.style.transform = 'translateX(-' + current * 100 + '%)';
+        document.querySelectorAll('.hero-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === current);
+        });
+        setTimeout(() => { isTransitioning = false; }, 850);
+      }
+
+      document.getElementById('hero-prev').addEventListener('click', () => {
+        clearInterval(autoPlay);
+        goTo(current - 1);
+        startAutoPlay();
+      });
+      document.getElementById('hero-next').addEventListener('click', () => {
+        clearInterval(autoPlay);
+        goTo(current + 1);
+        startAutoPlay();
+      });
+
+      function startAutoPlay() {
+        clearInterval(autoPlay);
+        autoPlay = setInterval(() => goTo(current + 1), 5000);
+      }
+      startAutoPlay();
+
+      const hero = document.querySelector('.hero-slider');
+      hero.addEventListener('mouseenter', () => clearInterval(autoPlay));
+      hero.addEventListener('mouseleave', startAutoPlay);
+
+      let touchStartX = 0;
+      hero.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+      hero.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          clearInterval(autoPlay);
+          goTo(diff > 0 ? current + 1 : current - 1);
+          startAutoPlay();
+        }
+      }, { passive: true });
+    })();
+
+    // ─── FORMATEUR CAROUSEL ───
+    (function() {
+      const track = document.getElementById('carousel-track');
+      const slides = track.querySelectorAll('.carousel-slide');
+      const total = slides.length;
+      let current = 0;
+      let autoPlay = null;
+      const dotsContainer = document.getElementById('carousel-dots');
+
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+
+      function goTo(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        current = index;
+        track.style.transform = 'translateX(-' + current * 100 + '%)';
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === current);
+        });
+      }
+
+      document.getElementById('prev-btn').addEventListener('click', () => {
+        clearInterval(autoPlay);
+        goTo(current - 1);
+        startAutoPlay();
+      });
+      document.getElementById('next-btn').addEventListener('click', () => {
+        clearInterval(autoPlay);
+        goTo(current + 1);
+        startAutoPlay();
+      });
+
+      function startAutoPlay() {
+        clearInterval(autoPlay);
+        autoPlay = setInterval(() => goTo(current + 1), 5000);
+      }
+      startAutoPlay();
+
+      const container = document.querySelector('.carousel-container');
+      container.addEventListener('mouseenter', () => clearInterval(autoPlay));
+      container.addEventListener('mouseleave', startAutoPlay);
+
+      let touchStartX = 0;
+      container.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+      container.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+          clearInterval(autoPlay);
+          goTo(diff > 0 ? current + 1 : current - 1);
+          startAutoPlay();
+        }
+      }, { passive: true });
+    })();
+
+    // ─── VIDÉOS : UNE SEULE LECTURE ───
+    (function() {
+      const videos = document.querySelectorAll('#videos video');
+      videos.forEach(video => {
+        video.addEventListener('play', function() {
+          videos.forEach(other => {
+            if (other !== this && !other.paused) other.pause();
+          });
+        });
+      });
+    })();
+
+    // ─── SMOOTH SCROLL ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = 80;
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ─── RIPPLE EFFECT ───
+    document.querySelectorAll('.btn-ripple').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        ripple.style.left = e.clientX - rect.left + 'px';
+        ripple.style.top = e.clientY - rect.top + 'px';
+        ripple.style.width = '20px';
+        ripple.style.height = '20px';
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    // ═══════════════════ GOOGLE FORMS LOADER ═══════════════════
+    function showLoader() {
+      const overlay = document.getElementById('loading-overlay');
+      if (overlay) {
+        overlay.classList.add('active');
+        // Fallback : masquer après 8 secondes
+        setTimeout(() => {
+          overlay.classList.remove('active');
+        }, 8000);
+      }
+    }
+
+    // Masquer le loader si l'utilisateur revient sur la page
+    window.addEventListener('pageshow', function() {
+      const overlay = document.getElementById('loading-overlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+      }
+    });
+
+    // Masquer le loader si la page perd le focus (l'utilisateur est parti sur Google Forms)
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        const overlay = document.getElementById('loading-overlay');
+        if (overlay) {
           setTimeout(() => {
-            isTransitioning = false;
-          }, 850);
+            overlay.classList.remove('active');
+          }, 3000);
         }
-
-        document.getElementById("hero-prev").addEventListener("click", () => {
-          clearInterval(autoPlayInterval);
-          goToSlide(current - 1);
-          startAutoPlay();
-        });
-        document.getElementById("hero-next").addEventListener("click", () => {
-          clearInterval(autoPlayInterval);
-          goToSlide(current + 1);
-          startAutoPlay();
-        });
-
-        function startAutoPlay() {
-          clearInterval(autoPlayInterval);
-          autoPlayInterval = setInterval(() => goToSlide(current + 1), 5000);
-        }
-        startAutoPlay();
-
-        const heroSection = document.querySelector(".hero-slider");
-        heroSection.addEventListener("mouseenter", () =>
-          clearInterval(autoPlayInterval),
-        );
-        heroSection.addEventListener("mouseleave", startAutoPlay);
-
-        let touchStartX = 0;
-        heroSection.addEventListener(
-          "touchstart",
-          (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-          },
-          { passive: true },
-        );
-        heroSection.addEventListener(
-          "touchend",
-          (e) => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) {
-              clearInterval(autoPlayInterval);
-              goToSlide(diff > 0 ? current + 1 : current - 1);
-              startAutoPlay();
-            }
-          },
-          { passive: true },
-        );
-      })();
-
-      // ─── Carousel formateur ───
-      (function () {
-        const track = document.getElementById("carousel-track");
-        const slides = track.querySelectorAll(".carousel-slide");
-        const total = slides.length;
-        let current = 0;
-        let autoPlayInterval = null;
-        const dotsContainer = document.getElementById("carousel-dots");
-
-        for (let i = 0; i < total; i++) {
-          const dot = document.createElement("button");
-          dot.classList.add("carousel-dot");
-          if (i === 0) dot.classList.add("active");
-          dot.addEventListener("click", () => goToSlide(i));
-          dotsContainer.appendChild(dot);
-        }
-
-        function goToSlide(index) {
-          if (index < 0) index = total - 1;
-          if (index >= total) index = 0;
-          current = index;
-          track.style.transform = "translateX(-" + current * 100 + "%)";
-          document
-            .querySelectorAll(".carousel-dot")
-            .forEach((dot, i) => dot.classList.toggle("active", i === current));
-        }
-
-        document.getElementById("prev-btn").addEventListener("click", () => {
-          clearInterval(autoPlayInterval);
-          goToSlide(current - 1);
-          startAutoPlay();
-        });
-        document.getElementById("next-btn").addEventListener("click", () => {
-          clearInterval(autoPlayInterval);
-          goToSlide(current + 1);
-          startAutoPlay();
-        });
-
-        function startAutoPlay() {
-          clearInterval(autoPlayInterval);
-          autoPlayInterval = setInterval(() => goToSlide(current + 1), 5000);
-        }
-        startAutoPlay();
-
-        const container = document.querySelector(".carousel-container");
-        container.addEventListener("mouseenter", () =>
-          clearInterval(autoPlayInterval),
-        );
-        container.addEventListener("mouseleave", startAutoPlay);
-
-        let touchStartX = 0;
-        container.addEventListener(
-          "touchstart",
-          (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-          },
-          { passive: true },
-        );
-        container.addEventListener(
-          "touchend",
-          (e) => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) {
-              clearInterval(autoPlayInterval);
-              goToSlide(diff > 0 ? current + 1 : current - 1);
-              startAutoPlay();
-            }
-          },
-          { passive: true },
-        );
-      })();
-
-      // ─── Vidéos : une seule lecture ───
-      (function () {
-        const videos = document.querySelectorAll("#videos video");
-        videos.forEach((video) => {
-          video.addEventListener("play", function () {
-            videos.forEach((other) => {
-              if (other !== this && !other.paused) other.pause();
-            });
-          });
-        });
-      })();
-
-      // ─── Formulaire ───
-      document
-        .getElementById("inscription-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const prenom = document.getElementById("prenom").value.trim();
-          const nom = document.getElementById("nom").value.trim();
-          const telephone = document.getElementById("telephone").value.trim();
-          const niveau = document.getElementById("niveau").value;
-          const module = document.getElementById("module").value;
-          const message = document.getElementById("message").value.trim();
-          if (!prenom || !nom || !telephone || !niveau || !module) {
-            alert("Veuillez remplir tous les champs obligatoires (*).");
-            return;
-          }
-          const sujet = "Inscription BureautiqueenPoc - " + prenom + " " + nom;
-          const corps =
-            "Nouvelle demande d'inscription :\n\nPrénom : " +
-            prenom +
-            "\nNom : " +
-            nom +
-            "\nTéléphone : " +
-            telephone +
-            "\nNiveau d'étude : " +
-            niveau +
-            "\nModule choisi : " +
-            module +
-            "\nRemarque : " +
-            (message || "Aucune remarque") +
-            "\n\n---\nEnvoyé depuis le formulaire d'inscription du site BureautiqueenPoc.";
-          window.location.href =
-            "mailto:elousmanedrame@gmail.com?subject=" +
-            encodeURIComponent(sujet) +
-            "&body=" +
-            encodeURIComponent(corps);
-          alert(
-            "✅ Votre demande a été préparée. Votre client mail va s'ouvrir, il ne vous reste plus qu'à envoyer le message.",
-          );
-        });
+      }
+    });
     </script>
   </body>
 </html>
